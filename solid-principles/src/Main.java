@@ -1,3 +1,5 @@
+import main.java.com.gk.principles.interfaceSegregationPrinciple.AdvancedPrinter;
+import main.java.com.gk.principles.interfaceSegregationPrinciple.BasicPrinter;
 import main.java.com.gk.principles.liskovSubstitutionPrinciple.Rectange;
 import main.java.com.gk.principles.liskovSubstitutionPrinciple.Square;
 import main.java.com.gk.principles.openClosedPrinciple.BikeNumberValidator;
@@ -43,5 +45,21 @@ public class Main {
 
         Square square = new Square(10);
         System.out.println("Square Area: " + square.calculateArea());
+
+        /**
+         * Interface Segregation Principle
+         * Larger interface should be split into smaller ones, to provide requirement specific interface.
+         * We are free to use the required functionality interface rather than larger interface for which
+         * other functionality doesn't support.
+         */
+        BasicPrinter basicPrinter = new BasicPrinter();
+        basicPrinter.print("document 1");
+
+        AdvancedPrinter advancedPrinter = new AdvancedPrinter();
+        advancedPrinter.print("document 2");
+        advancedPrinter.scan("document 2");
+        advancedPrinter.fax("document 2");
+
+
     }
 }
