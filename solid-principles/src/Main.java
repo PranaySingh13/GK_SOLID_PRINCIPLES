@@ -1,3 +1,7 @@
+import main.java.com.gk.principles.dependencyInversionPrinciple.EmailService;
+import main.java.com.gk.principles.dependencyInversionPrinciple.NotificationService;
+import main.java.com.gk.principles.dependencyInversionPrinciple.Notifier;
+import main.java.com.gk.principles.dependencyInversionPrinciple.SMSService;
 import main.java.com.gk.principles.interfaceSegregationPrinciple.AdvancedPrinter;
 import main.java.com.gk.principles.interfaceSegregationPrinciple.BasicPrinter;
 import main.java.com.gk.principles.liskovSubstitutionPrinciple.Rectange;
@@ -60,6 +64,18 @@ public class Main {
         advancedPrinter.scan("document 2");
         advancedPrinter.fax("document 2");
 
+        /**
+         * Dependency Inversion Principle
+         * Higher Level Modules should not depend on low-level modules. Both should be depended on abstraction.
+         * Adding a new notification type (e.g., PushNotificationSender) does not require modifying NotificationService.
+         * High-level and low-level modules depend on the abstraction (NotificationService).
+         */
+        NotificationService emailService = new EmailService();
+        Notifier notifier1 = new Notifier(emailService);
+        notifier1.sendNotification("Hello via Email!");
 
+        NotificationService smsService = new SMSService();
+        Notifier notifier2 = new Notifier(smsService);
+        notifier2.sendNotification("Hello via SMS!");
     }
 }
