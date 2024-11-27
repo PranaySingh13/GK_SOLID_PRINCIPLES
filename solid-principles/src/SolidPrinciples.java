@@ -13,7 +13,7 @@ import main.java.com.gk.principles.singleResponsibilityPrinciple.Percentage;
 import main.java.com.gk.principles.singleResponsibilityPrinciple.PrintDetails;
 import main.java.com.gk.principles.singleResponsibilityPrinciple.StudentDetails;
 
-public class Main {
+public class SolidPrinciples {
     public static void main(String[] args) {
 
         /**
